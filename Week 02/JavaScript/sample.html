@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <form id="registrationform">
+        <input type="text" id="name" required>
+        <input type="number" id="number" required>
+        <input type="number" id="age" required>
+        <input type="password" id="pass" required>
+        <input type="submit">
+    </form>
+    <div id="error"></div>
+</body>
+<script>
+    document.getElementById('registrationform').addEventListener('submit', function (e) {
+        e.preventDefault()
+        let error = []
+        var name = document.getElementById('name').value.trim();
+        var number = document.getElementById('number').value.trim();
+        var age = document.getElementById('age').value.trim();
+        var pass = document.getElementById('pass').value.trim();
+        if (name.length < 3) {
+            error.push("Name field is empty", name.length)
+        }
+        if (number.length != 10) {
+            error.push("Enter phone number correctly")
+        }
+        if (age < 0 || age > 150) {
+            error.push("Check Age")
+        }
+        if (pass === '' || pass.length < 8) {
+            error.push("Check password")
+        }
+        var errorElement = document.getElementById('error')
+        if (error.length > 0) {
+            errorElement.innerHTML = error.join('<br>');
+            errorElement.style.backgroundColor = "red"
+        } else {
+            errorElement.innerHTML = "Form submitted sucessfully";
+            errorElement.style.backgroundColor = "green"
+            alert("form submitted sucessfully")
+        }
+    })
+</script>
+
+</html>

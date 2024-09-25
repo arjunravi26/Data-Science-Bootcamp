@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Edit</th>
+        </tr>
+        {% for obj in users%}
+        <tr>
+            <td>{{obj.name}}</td>
+            <td>{{obj.age}}</td>
+            <td>
+                <form method="get">
+                    <input type="number" value="{{obj.id}}" hidden>
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form method="get" action="{%url 'delete' %}">
+                    <input type="number" value="{{obj.id}}" hidden name="id">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+            
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

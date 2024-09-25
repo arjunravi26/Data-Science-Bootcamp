@@ -1,0 +1,6 @@
+var id_selector = document.getElementById('id-1')
+console.log(id_selector)
+var class_selector = document.getElementsByClassName('class-1')
+console.log(class_selector)
+var a = document.querySelectorAll(".class-1")
+console.log(a[1].innerHTML)

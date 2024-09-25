@@ -1,0 +1,11 @@
+{% extends 'blank.html' %}
+<title>List Movies</title>
+<h1>List</h1>
+{% block add %}
+<h1>Movie List</h1>
+{% for i in movies %}
+<h1>{{i.title | upper}}</h1>
+<h3>{{i.year}}</h3>
+<p>{{i.summary}}</p>
+{% endfor %}
+{%endblock %}

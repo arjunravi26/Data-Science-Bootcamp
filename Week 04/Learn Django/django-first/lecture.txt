@@ -1,0 +1,9 @@
+Created virtual enviroment
+Created project(basic skelton of django project): django-admin startproject project_name
+cd project_name
+python manage.py runserver
+Notes:
+* Django have multiple apps in one project(module)
+* when we create a project with the project name one app will automatically create(main app)
+* python manage.py startapp app_name(to create new app)
+

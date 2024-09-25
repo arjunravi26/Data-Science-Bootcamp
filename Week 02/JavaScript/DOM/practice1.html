@@ -1,0 +1,27 @@
+<!-- Question: Build a webpage with a paragraph of text. Write JavaScript code to change the background color of the paragraph to a 
+random color every time a button is clicked.
+Challenge: Use style.backgroundColor and generate random colors using JavaScript. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Hello! The below button can change my color</p>
+    <button id="btn">Change Color</button>
+</body>
+<script>
+    var button = document.getElementById('btn')
+    button.addEventListener('dblclick', changeColor)
+    var text = document.getElementsByTagName('p')
+    function changeColor() {
+        text[0].style.backgroundColor = "red"
+    }
+    button.removeEventListener()
+</script>
+
+</html>

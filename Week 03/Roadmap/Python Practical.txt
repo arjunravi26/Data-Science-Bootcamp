@@ -1,0 +1,20 @@
+Python Practical
+
+1) list
+2) dict
+3) exception handling
+4) for and if
+5) slicing
+6) class and object
+7) lambda
+8) pattern
+9) map
+10) filter
+11) string
+12) function
+13)  packing and unpacking
+14) set and tuple
+15) zip
+practice atleast 5 question for each of the topic
+practice atleast 10 question for list,dictionary,slicing,pattern,string
+

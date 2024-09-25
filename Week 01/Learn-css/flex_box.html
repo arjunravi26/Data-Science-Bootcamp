@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+</head>
+<style>
+    .flex {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .one{
+        order: 0;
+    }
+    .four{
+        order:-1
+    }
+    .two{
+        order:3
+    }
+</style>
+
+<body>
+    <div class="flex">
+        <p class="one">1</p>
+        <p class="two">2</p>
+        <p class="three">3</p>
+        <p class="four">4</p>
+        <p class="five">5</p>
+        <p class="six">6</p>
+    </div>
+
+</body>
+
+</html>
