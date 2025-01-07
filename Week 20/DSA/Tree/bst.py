@@ -28,6 +28,7 @@ class BST:
                 self._insert(node.right, value)
         else:
             print(f"{value} is already present in the tree")
+            return
 
     def delete(self):
         pass
