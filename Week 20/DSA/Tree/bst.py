@@ -49,8 +49,8 @@ class BST:
                 return node.left
             else:
                 min_node = self.find_min(node)
-                node.value == min_node.value
-                self._delete(node.right, min_node.value)
+                node.value = min_node.value
+                node.right = self._delete(node.right, min_node.value)
         return node
 
     def search(self, value):
@@ -69,7 +69,7 @@ class BST:
     def find_min(self, node):
         if node.left is None:
             return node
-        self.find_min(node.left)
+        return self.find_min(node.left)
 
     def inorder(self):
         if not self.root:
@@ -113,11 +113,36 @@ class BST:
         self._postorder(node.right)
         print(node.value)
 
+    def find_height(self,node):
+        if not self.root:
+            return -1
+        left = self.find_height(node.left)
+        right = self.find_height(node.right)
+        return 1 + max(left,right)
+
+
+    def find_depth(self, value):
+        if not self.root:
+            return -1
+        return self._depth(self.root, value, 0)
+
+    def _depth(self, node, value, depth=0):
+        if node is None:
+            return -1
+        if node.value == value:
+            return depth
+        if node.value > value:
+            return self._depth(node.left, value, depth+1)
+        elif node.value < value:
+            return self._depth(node.right, value, depth+1)
+
 
 tree = BST()
 tree.insert(10)
 tree.insert(20)
 tree.insert(30)
+tree.insert(40)
+tree.insert(12)
 tree.insert(5)
 tree.insert(8)
 tree.inorder()
@@ -126,3 +151,5 @@ tree.postorder()
 tree.delete(30)
 tree.postorder()
 print(tree.search(5))
+print(tree.find_height(20))
+print(tree.find_depth(8))
