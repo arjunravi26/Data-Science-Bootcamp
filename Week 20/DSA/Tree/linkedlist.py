@@ -32,6 +32,20 @@ class Linkedlist:
             curr = curr.next
         return False
 
+    def reverse(self):
+        if not self.head:
+            return False
+        curr = self.head
+        prev = None
+        temp = None
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        self.head = prev
+        self.traverse()
+
     def traverse(self):
         if not self.head:
             return False
@@ -44,7 +58,12 @@ class Linkedlist:
 linked_list = Linkedlist()
 linked_list.insert(10)
 linked_list.insert(20)
+linked_list.insert(30)
+linked_list.insert(2)
+linked_list.insert(18)
 linked_list.insert(39)
 linked_list.traverse()
 linked_list.delete(39)
 linked_list.traverse()
+print("Reversed Linked List")
+linked_list.reverse()
