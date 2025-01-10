@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-# Abstract class for Payment Processors
 class PaymentProcessor(ABC):
     @abstractmethod
     def authenticate(self):
@@ -12,7 +11,6 @@ class PaymentProcessor(ABC):
         """Process the payment"""
         pass
 
-# Concrete implementations
 class CreditCardPayment(PaymentProcessor):
     def authenticate(self):
         print("Authenticating Credit Card using bank API...")
@@ -27,7 +25,6 @@ class PayPalPayment(PaymentProcessor):
     def process_payment(self, amount):
         print(f"Processing PayPal payment of ${amount} via PayPal API.")
 
-# Function to make payments
 def make_payment(payment_processor: PaymentProcessor, amount: float):
     payment_processor.authenticate()
     payment_processor.process_payment(amount)
@@ -36,5 +33,5 @@ def make_payment(payment_processor: PaymentProcessor, amount: float):
 payment1 = CreditCardPayment()
 payment2 = PayPalPayment()
 
-make_payment(payment1, 150.0)  # User doesn't care how CreditCard works
-make_payment(payment2, 250.0)  # User doesn't care how PayPal works
+make_payment(payment1, 150.0)
+make_payment(payment2, 250.0)
