@@ -31,9 +31,30 @@ class LinkedList:
             return
         while curr.next.next:
             if curr.next.data == value:
+                curr.next.next.prev = curr
                 curr.next = curr.next.next
                 return
             curr = curr.next
-        if curr.data == value:
-            curr.prev = None
+        if curr.next.data == value:
+            curr.next.prev = None
+            curr.next = None
 
+    def traverse(self):
+        if not self.head:
+            return False
+        curr = self.head
+        print()
+        while curr.next:
+            print(f"{curr.data}->", end="")
+            curr = curr.next
+        print(curr.data, end="")
+
+
+dll = LinkedList()
+dll.insert(10)
+dll.insert(30)
+dll.insert(50)
+dll.insert(60)
+dll.traverse()
+dll.delete(10)
+dll.traverse()
