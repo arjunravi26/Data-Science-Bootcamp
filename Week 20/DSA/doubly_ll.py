@@ -39,6 +39,51 @@ class LinkedList:
             curr.next.prev = None
             curr.next = None
 
+    def find_middle(self):
+        if not self.head:
+            return False
+        print()
+        slow = self.head
+        fast = self.head
+        while fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
+        print(slow.data)
+
+    def delete_mid(self):
+        if not self.head:
+            return False
+        print()
+        slow = self.head
+        fast = self.head
+        while fast.next and fast.next.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        prev.next = slow.next
+
+    def split(self):
+        if not self.head:
+            return False
+        print()
+        slow = self.head
+        fast = self.head
+        while fast.next and fast.next.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        lst2 = slow.next
+        slow.next = None
+        lst1 = self.head
+        while lst1.next:
+            print(lst1.data,end=",")
+            lst1 = lst1.next
+        print(lst1.data)
+        while lst2.next:
+            print(lst2.data,end=",")
+            lst2 = lst2.next
+        print(lst2.data)
+
     def traverse(self):
         if not self.head:
             return False
@@ -55,6 +100,13 @@ dll.insert(10)
 dll.insert(30)
 dll.insert(50)
 dll.insert(60)
+dll.insert(100)
+dll.insert(308)
+dll.insert(4)
 dll.traverse()
-dll.delete(10)
+# dll.delete(10)
 dll.traverse()
+dll.find_middle()
+# dll.delete_mid()
+dll.traverse()
+dll.split()
