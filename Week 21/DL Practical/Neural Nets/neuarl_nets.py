@@ -8,6 +8,7 @@ def sigmoid_derivative(x):
 
 def initialize_weights(input_size, hidden_size, output_size):
     W1 = np.random.randn(input_size, hidden_size) * 0.1
+    print(W1.shape,X.shape)
     b1 = np.zeros((1, hidden_size))
     W2 = np.random.randn(hidden_size, output_size) * 0.1
     b2 = np.zeros((1, output_size))
