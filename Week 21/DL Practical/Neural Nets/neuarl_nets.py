@@ -8,8 +8,8 @@ def sigmoid_derivative(x):
 
 def initialize_weights(input_size, hidden_size, output_size):
     W1 = np.random.randn(input_size, hidden_size) * 0.1
-    print(W1.shape,X.shape)
-    b1 = np.zeros((1, hidden_size))
+    print(W1,W1.shape,X.shape,X)
+    b1 = np.zeros((1, hidden_size))  ;
     W2 = np.random.randn(hidden_size, output_size) * 0.1
     b2 = np.zeros((1, output_size))
     return W1, b1, W2, b2
@@ -57,11 +57,11 @@ def train_neural_network(X, Y, input_size, hidden_size, output_size, epochs, lea
     return W1, b1, W2, b2
 
 if __name__ == "__main__":
-    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    Y = np.array([[0], [1], [1], [0]])
+    X = np.array([[0, 0], [0, 1], [1, 0], [1, 1],[0,0]])
+    Y = np.array([[0], [1], [1], [0],[0]])
 
     input_size = 2
-    hidden_size = 4
+    hidden_size = 10
     output_size = 1
     epochs = 10000
     learning_rate = 0.1
