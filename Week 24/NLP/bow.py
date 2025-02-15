@@ -28,8 +28,8 @@ print(word2count)
 
 freq_words = heapq.nlargest(15, word2count, key=word2count.get)
 print(freq_words)
-
-X = []
+# creating bow document matrix
+doc_X = []
 for data in sentences:
     vector = []
     for word in freq_words:
@@ -37,6 +37,26 @@ for data in sentences:
             vector.append(1)
         else:
             vector.append(0)
-    X.append(vector)
-X = np.asarray(X)
-print(X)
+    doc_X.append(vector)
+doc_X = np.asarray(doc_X)
+print(doc_X)
+
+# create bow word matrix
+word_X = []
+for word in freq_words:
+    vector = []
+    for data in sentences:
+        if word in nltk.word_tokenize(data):
+            vector.append(1)
+        else:
+            vector.append(0)
+    word_X.append(vector)
+word_X = np.array(word_X)
+print(word_X)
+word_df = pd.DataFrame(data=word_X, columns=[
+                       'doc1', 'doc2', 'doc3'], index=freq_words)
+print(word_df)
+
+doc_df = pd.DataFrame(data=doc_X, columns=freq_words,
+                      index=['doc1', 'doc2', 'doc3'])
+print(doc_df)
