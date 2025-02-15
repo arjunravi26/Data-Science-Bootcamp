@@ -18,15 +18,16 @@ tokens = []
 word2count = {}
 for sentence in sentences:
     words = nltk.tokenize.word_tokenize(sentence, preserve_line=True)
-    tokens.append(words)
-    print(tokens)
+    token = []
     for word in words:
-        word2count[word] = word2count.get(word, 0) + 1
+        if word not in nltk.corpus.stopwords.words('english'):
+            word2count[word] = word2count.get(word, 0) + 1
+            token.append(word)
+    tokens.append(token)
 print(tokens)
 print(word2count)
 
-
-freq_words = heapq.nlargest(15, word2count, key=word2count.get)
+freq_words = heapq.nlargest(10, word2count, key=word2count.get)
 print(freq_words)
 # creating bow document matrix
 doc_X = []
