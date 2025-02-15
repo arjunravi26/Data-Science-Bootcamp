@@ -54,10 +54,13 @@ for word in freq_words:
     word_X.append(vector)
 word_X = np.array(word_X)
 print(word_X)
-word_df = pd.DataFrame(data=word_X, columns=[
-                       'doc1', 'doc2', 'doc3'], index=freq_words)
+word_df = pd.DataFrame(data=word_X, columns=['doc1', 'doc2', 'doc3'], index=freq_words)
 print(word_df)
 
-doc_df = pd.DataFrame(data=doc_X, columns=freq_words,
-                      index=['doc1', 'doc2', 'doc3'])
+doc_df = pd.DataFrame(data=doc_X, columns=freq_words,index=['doc1', 'doc2', 'doc3'])
 print(doc_df)
+
+
+
+
+
