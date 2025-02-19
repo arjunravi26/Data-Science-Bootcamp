@@ -44,7 +44,7 @@ print(idf)
 tf_idf = tf_freq * idf
 print(tf_idf)
 
-index=[f'doc{i+1}' for i in range(len(sentences))]
+index = [f'doc{i+1}' for i in range(len(sentences))]
 df = pd.DataFrame(data=tf_idf, columns=list(
     vocab), index=index)
 print(df)
